@@ -35,7 +35,7 @@ export interface TodoItemProps {
   id: string;
   label: string;
   checked?: boolean;
-  onChange?: (checked: boolean) => void;
+  onChange?: (id: string, checked: boolean) => void;
 }
 
 export const TodoItem: FC<TodoItemProps> = ({
@@ -50,7 +50,7 @@ export const TodoItem: FC<TodoItemProps> = ({
         type="checkbox"
         id={id}
         checked={checked}
-        onChange={(e) => onChange(e.target.checked)}
+        onChange={(e) => onChange(id, e.target.checked)}
       />
       <Label checked={checked}>{label}</Label>
     </Wrapper>
